@@ -3,7 +3,7 @@ import { BoardStatus } from './board-status.enum';
 import { v1 as uuid } from 'uuid';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { BoardRepositroy } from './board.repository';
+import { BoardRepository } from './board.repository';
 import { Board } from './board.entity';
 import { User } from '../auth/user.entity';
 import { OneToMany } from 'typeorm';
@@ -11,8 +11,8 @@ import { OneToMany } from 'typeorm';
 @Injectable()
 export class BoardsService {
   constructor(
-    @InjectRepository(BoardRepositroy)
-    private boardRepositroy: BoardRepositroy,
+    @InjectRepository(BoardRepository)
+    private boardRepositroy: BoardRepository,
   ) {}
 
   async getAllBoards(user: User): Promise<Board[]> {
